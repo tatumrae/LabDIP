@@ -4,17 +4,19 @@ package dip.lab2.student.solution1;
  *
  * @author Tatum Thomas
  */
-public class FoodServiceTipCalculator implements TipCalculator {
+public class BaggageServiceTipCalculator implements TipCalculator {
     
-    private double billAmt;
+    private double baseRate;
     private double goodTip = .20;
     private double fairTip = .15;
     private double poorTip = .10;
     private ServiceQuality serviceQuality;
+    private int bagCount;
 
-    public FoodServiceTipCalculator(double billAmt, ServiceQuality serviceQuality) {
-        this.billAmt = billAmt;
+    public BaggageServiceTipCalculator(double baseRate, ServiceQuality serviceQuality, int bagCount) {
+        this.baseRate = baseRate;
         this.serviceQuality = serviceQuality;
+        this.bagCount = bagCount;
     }
     
     @Override
@@ -22,25 +24,34 @@ public class FoodServiceTipCalculator implements TipCalculator {
         double tip = 0;
         switch(serviceQuality) {
             case GOOD:
-                tip = billAmt * goodTip;
+                tip = baseRate * bagCount * goodTip;
                 break;
             case FAIR:
-                tip = billAmt * fairTip;
+                tip = baseRate * bagCount * fairTip;
                 break;
             case POOR:
-                tip = billAmt * poorTip;
+                tip = baseRate * bagCount * poorTip;
                 break;
         }
         return tip;
     }
 
-    public final double getBillAmt() {
-        return billAmt;
+    public final int getBagCount() {
+        return bagCount;
     }
 
-    public final void setBillAmt(double billAmt) {
+    public final void setBagCount(int bagCount) {
         // needs validation
-        this.billAmt = billAmt;
+        this.bagCount = bagCount;
+    }
+
+    public final double getBaseRate() {
+        return baseRate;
+    }
+
+    public final void setBaseRate(double baseRate) {
+        // needs validation
+        this.baseRate = baseRate;
     }
 
     @Override
