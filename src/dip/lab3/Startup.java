@@ -6,7 +6,11 @@ package dip.lab3;
  */
 public class Startup {
     public static void main(String[] args) {
-        MessagingService service = new MessagingService();
+        MessagingInput input = new RandomMessageInput();
+        MessagingOutput output = new JOptionOutput();
+        
+        MessagingService service = new MessagingService(input, output);
+        service.createMessage();
         
     }
 }

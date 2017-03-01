@@ -14,8 +14,7 @@ public class MessagingService {
     }
     
     public final void createMessage() {
-        String message = input.gatherInputMessage();
-        
+        output.outputMessage(input.inputMessage());
     }
 
     public final MessagingInput getInput() {

@@ -9,11 +9,9 @@ import java.util.Scanner;
 public class KeyboardReader implements MessagingInput{
 
     @Override
-    public String readLine() {
+    public String inputMessage() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter your input: ");
-        return keyboard.nextLine();
-        
+        return keyboard.nextLine();       
     }
-    
 }

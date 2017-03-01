@@ -10,5 +10,5 @@ package dip.lab3;
  * @author tatum
  */
 public interface MessagingOutput {
-    String outputMessage();
+    void outputMessage(String message);
 }
